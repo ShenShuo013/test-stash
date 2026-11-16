@@ -125,6 +125,6 @@ rules:
   # 抖音和 TikTok 共用 pitaya.bytedance.com：解析到国内就放行给直连，不要拖走国内抖音
   - 'AND,((GEOIP,CN),(DOMAIN,pitaya.bytedance.com)),DIRECT'
   # 其余 TikTok 域名统一走上面填写的策略组
-  - 'RULE-SET,tiktok-unlock,${args.policy}'
+  - 'RULE-SET,tiktok-unlock,手动切换'
   # 兜底：看不出来路的域名，只要是 TikTok App 发出的也一起走
-  - 'USER-AGENT,TikTok*,${args.policy}'
+  - 'USER-AGENT,TikTok*,手动切换'
