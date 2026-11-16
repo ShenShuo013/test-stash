@@ -14,9 +14,9 @@ arguments-version: 1
 arguments:
   policy:
     type: input
-    title: 策略组名称
+    title: 手动切换
     description: 填你配置里已有的策略组名（例如 🚀 节点选择），TikTok 的流量会全部走它。
-    default: '🚀 节点选择'
+    default: '手动切换'
     required: true
     max-length: 64
 
