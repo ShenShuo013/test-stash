@@ -1,0 +1,130 @@
+name: '🎵 TikTok 分流（解锁第一步）'
+desc: |-
+  把 TikTok 的全部域名交给一个「原生 IP 能解锁 TikTok」的节点。
+  不需要装证书、不需要 MitM。
+  安装后到「覆写 → 参数」里填写你配置中已有的策略组名称即可。
+openUrl: 'https://github.com/Semporia/TikTok-Unlock'
+author: 'TikTok-Unlock · Stash 适配'
+homepage: 'https://github.com/Semporia/TikTok-Unlock'
+category: '🎵 TikTok'
+date: '2026-11-16'
+version: '1.0.0'
+
+arguments-version: 1
+arguments:
+  policy:
+    type: input
+    title: 策略组名称
+    description: 填你配置里已有的策略组名（例如 🚀 节点选择），TikTok 的流量会全部走它。
+    default: '🚀 节点选择'
+    required: true
+    max-length: 64
+
+rule-providers:
+  tiktok-unlock:
+    type: inline
+    behavior: classical
+    payload:
+      # ── 抖音 / TikTok 共用域名：解析到国内时才直连，避免影响国内抖音 ──
+      - 'DOMAIN,pitaya.bytedance.com'
+      # ── 明确属于 TikTok 的域名 ──
+      - 'DOMAIN,api.snapkit.com'
+      - 'DOMAIN,cocacola.co.jp'
+      - 'DOMAIN,courses.snapsolve.com'
+      - 'DOMAIN,engagements.appsflyer.com'
+      - 'DOMAIN,musically-alternate.app.link'
+      - 'DOMAIN,musically.app.link'
+      - 'DOMAIN,p1-tt.byteimg.com'
+      - 'DOMAIN,p1-tt-ipv6.byteimg.com'
+      - 'DOMAIN,p26-tt.byteimg.com'
+      - 'DOMAIN,p3-tt-ipv6.byteimg.com'
+      - 'DOMAIN,p9-tt.byteimg.com'
+      - 'DOMAIN,p16-tiktokcdn-com.akamaized.net'
+      - 'DOMAIN,roovza-launches.appsflyersdk.com'
+      - 'DOMAIN,pull-f3-hs.pstatp.com'
+      - 'DOMAIN,pull-f5-hs.flive.pstatp.com'
+      - 'DOMAIN,pull-f5-hs.pstatp.com'
+      - 'DOMAIN,pull-f5-mus.pstatp.com'
+      - 'DOMAIN,pull-flv-f1-hs.pstatp.com'
+      - 'DOMAIN,pull-flv-f6-hs.pstatp.com'
+      - 'DOMAIN,pull-flv-l1-hs.pstatp.com'
+      - 'DOMAIN,pull-flv-l1-mus.pstatp.com'
+      - 'DOMAIN,pull-flv-l6-hs.pstatp.com'
+      - 'DOMAIN,pull-hls-l1-mus.pstatp.com'
+      - 'DOMAIN,pull-l3-hs.pstatp.com'
+      - 'DOMAIN,pull-rtmp-f1-hs.pstatp.com'
+      - 'DOMAIN,pull-rtmp-f6-hs.pstatp.com'
+      - 'DOMAIN,pull-rtmp-l1-hs.pstatp.com'
+      - 'DOMAIN,pull-rtmp-l1-mus.pstatp.com'
+      - 'DOMAIN,pull-rtmp-l6-hs.pstatp.com'
+      - 'DOMAIN-SUFFIX,bytedance.com'
+      - 'DOMAIN-SUFFIX,bytedance.net'
+      - 'DOMAIN-SUFFIX,bytedapm.com'
+      - 'DOMAIN-SUFFIX,bytefcdn-oversea.com'
+      - 'DOMAIN-SUFFIX,bytefcdn-ttpeu.com'
+      - 'DOMAIN-SUFFIX,bytegecko-i18n.com'
+      - 'DOMAIN-SUFFIX,byteglb.com'
+      - 'DOMAIN-SUFFIX,byteicdn.com'
+      - 'DOMAIN-SUFFIX,byteigtm.com'
+      - 'DOMAIN-SUFFIX,byteintl.com'
+      - 'DOMAIN-SUFFIX,byteintl.net'
+      - 'DOMAIN-SUFFIX,byteoversea.com'
+      - 'DOMAIN-SUFFIX,byteoversea.net'
+      - 'DOMAIN-SUFFIX,bytetcdn.com'
+      - 'DOMAIN-SUFFIX,capcut.com'
+      - 'DOMAIN-SUFFIX,ibytedtos.com'
+      - 'DOMAIN-SUFFIX,ibyteimg.com'
+      - 'DOMAIN-SUFFIX,ipstatp.com'
+      - 'DOMAIN-SUFFIX,isnssdk.com'
+      - 'DOMAIN-SUFFIX,muscdn.com'
+      - 'DOMAIN-SUFFIX,musemuse.cn'
+      - 'DOMAIN-SUFFIX,musical.ly'
+      - 'DOMAIN-SUFFIX,sgpstatp.com'
+      - 'DOMAIN-SUFFIX,sgsnssdk.com'
+      - 'DOMAIN-SUFFIX,snssdk.com'
+      - 'DOMAIN-SUFFIX,tik-tokapi.com'
+      - 'DOMAIN-SUFFIX,tiktok-usts.net'
+      - 'DOMAIN-SUFFIX,tiktok.com'
+      - 'DOMAIN-SUFFIX,tiktok.in'
+      - 'DOMAIN-SUFFIX,tiktokcdn-eu.com'
+      - 'DOMAIN-SUFFIX,tiktokcdn-eu.net'
+      - 'DOMAIN-SUFFIX,tiktokcdn-in.com'
+      - 'DOMAIN-SUFFIX,tiktokcdn-us.com'
+      - 'DOMAIN-SUFFIX,tiktokcdn.com'
+      - 'DOMAIN-SUFFIX,tiktokd.net'
+      - 'DOMAIN-SUFFIX,tiktokd.org'
+      - 'DOMAIN-SUFFIX,tiktokglobalshop.com'
+      - 'DOMAIN-SUFFIX,tiktokglobalshopv.com'
+      - 'DOMAIN-SUFFIX,tiktokmusic.app'
+      - 'DOMAIN-SUFFIX,tiktokshop.com'
+      - 'DOMAIN-SUFFIX,tiktokstaticb.com'
+      - 'DOMAIN-SUFFIX,tiktokv.com'
+      - 'DOMAIN-SUFFIX,tiktokv.eu'
+      - 'DOMAIN-SUFFIX,tiktokv.us'
+      - 'DOMAIN-SUFFIX,tiktokw.us'
+      - 'DOMAIN-SUFFIX,tlivecdn.com'
+      - 'DOMAIN-SUFFIX,tlivepush.com'
+      - 'DOMAIN-SUFFIX,ttadsmanager.com'
+      - 'DOMAIN-SUFFIX,ttapis.com'
+      - 'DOMAIN-SUFFIX,ttdns2.com'
+      - 'DOMAIN-SUFFIX,ttlivecdn.com'
+      - 'DOMAIN-SUFFIX,ttoversea.net'
+      - 'DOMAIN-SUFFIX,ttoverseaus.net'
+      - 'DOMAIN-SUFFIX,ttwstatic.com'
+      - 'DOMAIN-SUFFIX,tzvbfs.com'
+      - 'DOMAIN-KEYWORD,-tiktokcdn-com'
+      - 'DOMAIN-KEYWORD,bytedance.map.'
+      - 'DOMAIN-KEYWORD,musical.ly.'
+      - 'DOMAIN-KEYWORD,tiktokcdn-'
+      - 'DOMAIN-KEYWORD,tiktokcdn.com.'
+      - 'DOMAIN-KEYWORD,tiktokv.com.'
+      - 'DOMAIN-KEYWORD,ttcdn-tos.'
+      - 'DOMAIN-KEYWORD,ttlivecdn.com.'
+
+rules:
+  # 抖音和 TikTok 共用 pitaya.bytedance.com：解析到国内就放行给直连，不要拖走国内抖音
+  - 'AND,((GEOIP,CN),(DOMAIN,pitaya.bytedance.com)),DIRECT'
+  # 其余 TikTok 域名统一走上面填写的策略组
+  - 'RULE-SET,tiktok-unlock,${args.policy}'
+  # 兜底：看不出来路的域名，只要是 TikTok App 发出的也一起走
+  - 'USER-AGENT,TikTok*,${args.policy}'
